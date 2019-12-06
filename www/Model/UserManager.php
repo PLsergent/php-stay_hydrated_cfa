@@ -4,27 +4,24 @@ class UserManager {
     private $db;
 
     public function __construct($db1) {
-        $this->$db = $db1;
+        $this->db = $db1;
     }
 
     public function create(User $user) {
-        $req = $this->$db->prepare(
-            "INSERT INTO users ( lastName, firstName, email, address, postalCode, city, password, admin )
-            VALUES ( :lastName, :firstName, :email, :address, :cp, :city, :password, 0 )"
+        $req = $this->db->prepare(
+            "INSERT INTO users ( email, password, firstName, lastName, address, postalCode, city, admin ) VALUES ( 'email', 'password', 'firstName', 'lastName', 'address', 'postalCode', 'city', 0 )"
         );
-        $req->bind_param(
+        $req->execute(
             array(
-                'lastName' => $user->getLastName(),
-                'firstName' => $user->getFirstName(),
                 'email' => $user->getEmail(),
+                'password' => $user->getPassword(),
+                'firstName' => $user->getFirstName(),
+                'lastName' => $user->getLastName(),
                 'address' => $user->getAddress(),
-                'cp' => $user->getPostalCode(),
-                'city' => $user->getCity(),
-                'password' => $user->getPassword()
+                'postalCode' => $user->getPostalCode(),
+                'city' => $user->getCity()
             )
         );
-
-        $req->execute();
     }
 
     public function login($email, $password) {

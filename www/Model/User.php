@@ -10,8 +10,13 @@ class User {
     private $postalCode;
     private $city;
 
+
+    public function __construct($data) {
+        $this->hydrate($data);
+    }
+
     public function getId() {
-        return $this->$id;
+        return $this->id;
     }
 
     public function setId($id1) {
@@ -21,11 +26,21 @@ class User {
     //
 
     public function getEmail() {
-        return $this->$email;
+        return $this->email;
     }
 
     public function setEmail($email1) {
         $this->email=$email1;
+    }
+
+    //
+
+    public function getPassword() {
+        return $this->password;
+    }
+
+    public function setPassword($password1) {
+        $this->password=$password1;
     }
 
     //
@@ -41,7 +56,7 @@ class User {
     //
 
     public function getLastName() {
-        return $this->$lastName;
+        return $this->lastName;
     }
 
     public function setLastName($lastName1) {
@@ -51,7 +66,7 @@ class User {
     //
 
     public function getAddress() {
-        return $this->$address;
+        return $this->address;
     }
 
     public function setAddress($address1) {
@@ -61,7 +76,7 @@ class User {
     //
 
     public function getPostalCode() {
-        return $this->$postalCode;
+        return $this->postalCode;
     }
 
     public function setPostalCode($postalCode1) {
@@ -71,7 +86,7 @@ class User {
     //
 
     public function getCity() {
-        return $this->$city;
+        return $this->city;
     }
 
     public function setCity($city1) {
@@ -79,8 +94,8 @@ class User {
     }
 
     // Hydrate method
-    public function hydrate(array $donnees){
-        foreach($donnees as $key => $value){
+    public function hydrate(array $data){
+        foreach($data as $key => $value){
             $method = "set".ucfirst($key);
             if (method_exists($this, $method)) {
                 $this->$method($value);
