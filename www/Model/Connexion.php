@@ -8,10 +8,10 @@ class Connexion {
     private $db;
 
     public function __construct() {
-        $this->host = '172.21.0.2';
-        $this->dbname = 'mysql';
-        $this->username = 'root';
-        $this->password = 'tiger';
+        $this->host = '172.21.0.3';
+        $this->dbname = 'docker';
+        $this->username = 'docker';
+        $this->password = 'docker';
         
         $this->db = new PDO('mysql:host=' . $this->host . ';dbname=' . $this->dbname . ';charset=utf8', $this->username, $this->password);
     }

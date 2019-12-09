@@ -46,7 +46,7 @@ class User {
     //
 
     public function getFirstName() {
-        return $this->$firstName;
+        return $this->firstName;
     }
 
     public function setFirstName($firstName1) {
