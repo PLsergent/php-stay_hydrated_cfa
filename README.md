@@ -8,8 +8,8 @@ Stay hydrated
 - 4.2 : OK
 - 5.1 : OK
 - 6.1 : OK
-- 7.1 : OK but problem with method prepare()
-- 8.1 : OK mais beugé
+- 7.1 : OK
+- 8.1 : OK
 
 ## Prerequisite
 - docker
@@ -41,9 +41,9 @@ You will have to replace the ip address of the mysql docker based on your docker
 
 Execute ```docker ps``` and get the id from the container **png-mysql**.
 
-Then execute ```docker inspect <container_id>``` and you'll be able to get the ip address amoung all the informations given about your mysql docker.
+Then execute ```docker inspect <container_id>``` and you'll be able to get the ip address amoung all the informations given on your mysql docker.
 
-Now replace in the file.
+Now replace the ip address in the file.
 
 ### App running
 http://localhost
