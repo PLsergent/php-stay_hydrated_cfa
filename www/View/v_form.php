@@ -15,7 +15,7 @@
     </header>
     <hr/>
     <section id="main-section">
-        <form action="../controller/c_form.php" method="POST">
+        <form action="../Controller/c_form.php" method="POST">
             <label>Mail :</label><br/>
             <input type="email" name="email"placeholder="Mail.."/><br>
             <label>Mot de passe :</label><br/>
